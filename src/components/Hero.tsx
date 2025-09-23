@@ -28,13 +28,13 @@ const Hero = () => {
           {/* Text Content */}
           <div className="text-white animate-fade-in">
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight">
-              Modern Publishing
-              <span className="block text-accent">Made Simple</span>
+              Where Ideas Meet
+              <span className="block bg-gradient-to-r from-accent to-yellow-300 bg-clip-text text-transparent animate-shimmer">Innovation</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-              Discover insightful articles on technology, design, business, and lifestyle. 
-              Join our community of forward-thinking creators and innovators.
+              Explore cutting-edge insights, expert perspectives, and transformative ideas that shape tomorrow's world. 
+              Join thousands of visionaries who stay ahead of the curve.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -74,36 +74,36 @@ const Hero = () => {
             <div className="relative">
               {/* Decorative Cards */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                  <div className="w-12 h-12 bg-accent rounded-lg mb-4 flex items-center justify-center">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 hover-lift animate-fade-in" style={{animationDelay: '0.2s'}}>
+                  <div className="w-12 h-12 bg-accent rounded-lg mb-4 flex items-center justify-center animate-pulse-glow">
                     <BookOpen className="h-6 w-6 text-accent-foreground" />
                   </div>
-                  <h3 className="font-semibold text-white mb-2">Quality Content</h3>
-                  <p className="text-white/80 text-sm">In-depth articles written by industry experts</p>
+                  <h3 className="font-semibold text-white mb-2">Expert Insights</h3>
+                  <p className="text-white/80 text-sm">Deep-dive analysis from industry thought leaders</p>
                 </div>
                 
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 mt-8">
-                  <div className="w-12 h-12 bg-accent rounded-lg mb-4 flex items-center justify-center">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 mt-8 hover-lift animate-fade-in" style={{animationDelay: '0.4s'}}>
+                  <div className="w-12 h-12 bg-accent rounded-lg mb-4 flex items-center justify-center animate-float">
                     <TrendingUp className="h-6 w-6 text-accent-foreground" />
                   </div>
-                  <h3 className="font-semibold text-white mb-2">Latest Trends</h3>
-                  <p className="text-white/80 text-sm">Stay updated with industry trends and insights</p>
+                  <h3 className="font-semibold text-white mb-2">Future Trends</h3>
+                  <p className="text-white/80 text-sm">Anticipate what's next in your industry</p>
                 </div>
                 
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 -mt-4">
-                  <div className="w-12 h-12 bg-accent rounded-lg mb-4 flex items-center justify-center">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 -mt-4 hover-lift animate-fade-in" style={{animationDelay: '0.6s'}}>
+                  <div className="w-12 h-12 bg-accent rounded-lg mb-4 flex items-center justify-center animate-pulse-glow">
                     <Users className="h-6 w-6 text-accent-foreground" />
                   </div>
-                  <h3 className="font-semibold text-white mb-2">Community</h3>
-                  <p className="text-white/80 text-sm">Join a community of passionate learners</p>
+                  <h3 className="font-semibold text-white mb-2">Global Network</h3>
+                  <p className="text-white/80 text-sm">Connect with innovators worldwide</p>
                 </div>
                 
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 mt-4">
-                  <div className="w-12 h-12 bg-accent rounded-lg mb-4 flex items-center justify-center">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 mt-4 hover-lift animate-fade-in" style={{animationDelay: '0.8s'}}>
+                  <div className="w-12 h-12 bg-accent rounded-lg mb-4 flex items-center justify-center animate-float">
                     <ArrowRight className="h-6 w-6 text-accent-foreground" />
                   </div>
-                  <h3 className="font-semibold text-white mb-2">Easy Access</h3>
-                  <p className="text-white/80 text-sm">Read anywhere, anytime on any device</p>
+                  <h3 className="font-semibold text-white mb-2">Always Learning</h3>
+                  <p className="text-white/80 text-sm">Continuous updates across all devices</p>
                 </div>
               </div>
             </div>
@@ -111,9 +111,11 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-20 right-20 w-32 h-32 bg-accent/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-20 w-40 h-40 bg-accent/10 rounded-full blur-3xl" />
+      {/* Enhanced Decorative Elements */}
+      <div className="absolute top-20 right-20 w-32 h-32 bg-accent/20 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-20 left-20 w-40 h-40 bg-accent/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-yellow-300/10 rounded-full blur-2xl animate-float" style={{animationDelay: '2s'}} />
+      <div className="absolute bottom-1/3 right-1/3 w-20 h-20 bg-accent/15 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}} />
     </section>
   );
 };

@@ -28,13 +28,13 @@ const Hero = () => {
           {/* Text Content */}
           <div className="text-white animate-fade-in">
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight">
-              Where Ideas Meet
-              <span className="block bg-gradient-to-r from-accent to-yellow-300 bg-clip-text text-transparent animate-shimmer">Innovation</span>
+              Welcome to
+              <span className="block bg-gradient-to-r from-accent to-yellow-300 bg-clip-text text-transparent animate-shimmer">Catch Up with Fab</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-              Explore cutting-edge insights, expert perspectives, and transformative ideas that shape tomorrow's world. 
-              Join thousands of visionaries who stay ahead of the curve.
+              Your personal gateway to insights, stories, and conversations that matter. 
+              Discover fresh perspectives on technology, life, and everything in between.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-12">

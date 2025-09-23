@@ -29,10 +29,10 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">MB</span>
+              <span className="text-primary-foreground font-bold text-sm">CF</span>
             </div>
             <span className="font-heading text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
-              ModernBlog
+              Catch Up with Fab
             </span>
           </Link>
 

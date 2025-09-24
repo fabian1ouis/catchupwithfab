@@ -28,25 +28,31 @@ export const categories: Category[] = [
   {
     id: "1",
     name: "Technology",
-    description: "Latest trends in tech and development",
+    description: "Latest tech trends and innovations in Kenya",
     slug: "technology"
   },
   {
     id: "2", 
-    name: "Design",
-    description: "UI/UX design insights and inspiration",
-    slug: "design"
+    name: "Social Events",
+    description: "Kenya's vibrant social scene and cultural events",
+    slug: "social-events"
   },
   {
     id: "3",
     name: "Business",
-    description: "Startup and business strategy content",
+    description: "Kenya's business landscape and startup ecosystem",
     slug: "business"
   },
   {
     id: "4",
+    name: "News",
+    description: "Latest news and developments in Kenya", 
+    slug: "news"
+  },
+  {
+    id: "5",
     name: "Lifestyle",
-    description: "Work-life balance and productivity tips", 
+    description: "Modern Kenyan lifestyle and culture",
     slug: "lifestyle"
   }
 ];
@@ -54,311 +60,634 @@ export const categories: Category[] = [
 export const blogPosts: BlogPost[] = [
   {
     id: "1",
-    title: "The Future of Web Development: Trends to Watch in 2024",
-    excerpt: "Explore the cutting-edge technologies and methodologies that are shaping the future of web development, from AI integration to new frameworks.",
+    title: "Kenya's Digital Revolution: How Fintech is Transforming Lives in 2025",
+    excerpt: "Exploring how Kenya continues to lead Africa's fintech revolution with innovations in mobile money, blockchain, and digital banking solutions that are changing lives across the continent.",
     content: `
-# The Future of Web Development: Trends to Watch in 2024
+# Kenya's Digital Revolution: How Fintech is Transforming Lives in 2025
 
-Web development continues to evolve at a rapid pace, with new technologies and methodologies emerging to meet the ever-changing demands of users and businesses. As we move through 2024, several key trends are reshaping how we build and interact with web applications.
+Kenya has established itself as the Silicon Savannah of Africa, and 2025 marks a new chapter in our digital transformation story. From the rural villages to Nairobi's bustling CBD, technology is reshaping how Kenyans live, work, and connect.
 
-## AI-Powered Development Tools
+## M-Pesa Evolution: Beyond Mobile Money
 
-Artificial Intelligence is revolutionizing the development process. From code generation to automated testing, AI tools are becoming indispensable for modern developers. These tools not only increase productivity but also help identify potential issues early in the development cycle.
+What started as a simple mobile money transfer service has evolved into a comprehensive financial ecosystem. In 2025, M-Pesa now offers:
 
-## Progressive Web Apps (PWAs) Maturity
+- **Digital Credit**: Instant micro-loans based on transaction history
+- **Investment Platforms**: Direct access to NSE and global markets
+- **Insurance Integration**: Parametric insurance for farmers and small businesses
+- **Cross-border Payments**: Seamless transactions across East Africa
 
-PWAs have reached a new level of sophistication, offering near-native app experiences directly from the browser. With improved offline capabilities and better performance, PWAs are becoming the go-to solution for businesses looking to reach users across all platforms.
+## The Rise of Blockchain in Agriculture
 
-## Serverless Architecture Adoption
+Kenyan farmers are embracing blockchain technology for:
 
-The serverless paradigm continues to gain traction, allowing developers to focus on code rather than infrastructure management. This approach offers better scalability, reduced costs, and faster time-to-market for many applications.
+- **Supply Chain Transparency**: Tracking produce from farm to fork
+- **Smart Contracts**: Automated payments upon delivery verification
+- **Weather Insurance**: Blockchain-based parametric insurance
+- **Carbon Credits**: Monetizing sustainable farming practices
 
-> "The future of web development lies in the seamless integration of AI, improved user experiences, and sustainable coding practices."
+## Startup Ecosystem Boom
 
-## What This Means for Developers
+Nairobi's startup scene is thriving with homegrown solutions:
 
-These trends represent more than just technological advancement—they signal a shift toward more intelligent, efficient, and user-centric development practices. Developers who adapt to these changes will be better positioned to create applications that meet tomorrow's challenges.
+- **HealthTech**: Telemedicine platforms serving remote communities
+- **EdTech**: Digital learning solutions bridging the education gap
+- **CleanTech**: Solar solutions and waste management innovations
+- **LogisticTech**: Last-mile delivery solutions for e-commerce
+
+> "Kenya's strength lies in building technology that solves real African problems, not just copying Western solutions."
+
+## What's Next for 2025
+
+The focus is shifting towards:
+- AI-powered solutions for agriculture and healthcare
+- Green technology initiatives aligned with Vision 2030
+- Regional expansion of Kenyan tech solutions
+- Skills development in emerging technologies
+
+Kenya's digital future is bright, built on innovation that serves our people and continent.
     `,
     author: {
-      name: "Sarah Chen",
-      bio: "Senior Full-Stack Developer with 8+ years of experience in modern web technologies. Passionate about clean code and innovative solutions.",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b5c5?w=150&h=150&fit=crop&crop=face"
+      name: "Fabian Louis",
+      bio: "Tech enthusiast and digital transformation advocate. Passionate about Kenya's role in Africa's technological advancement.",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
     },
-    publishedAt: "2024-01-15",
+    publishedAt: "2025-01-20",
     readingTime: 8,
     category: "Technology",
-    tags: ["Web Development", "AI", "PWA", "Serverless"],
+    tags: ["Fintech", "Kenya", "Digital Transformation", "Mobile Money", "Blockchain"],
     featured: true,
     image: "/src/assets/post-tech.jpg",
-    slug: "future-web-development-2024"
+    slug: "kenya-digital-revolution-fintech-2025"
   },
   {
     id: "2", 
-    title: "Designing for Accessibility: A Complete Guide",
-    excerpt: "Learn how to create inclusive designs that work for everyone. This comprehensive guide covers WCAG guidelines, testing tools, and practical implementation strategies.",
+    title: "Nairobi's Cultural Renaissance: Art, Music & Events Shaping 2025",
+    excerpt: "From the vibrant street art in Kibera to the sophisticated galleries in Westlands, explore how Nairobi's cultural scene is experiencing an unprecedented renaissance in 2025.",
     content: `
-# Designing for Accessibility: A Complete Guide
+# Nairobi's Cultural Renaissance: Art, Music & Events Shaping 2025
 
-Accessibility in design isn't just about compliance—it's about creating inclusive experiences that work for everyone, regardless of their abilities or circumstances. This guide will walk you through the essential principles and practical steps to make your designs truly accessible.
+Nairobi is buzzing with creative energy in 2025. Our city has become a cultural hub that's attracting artists, musicians, and creatives from across Africa and beyond. Here's what's making waves in Kenya's capital.
 
-## Understanding WCAG Guidelines
+## The Art Scene Explosion
 
-The Web Content Accessibility Guidelines (WCAG) provide a framework for creating accessible digital content. The four main principles are:
+Nairobi's art scene has never been more vibrant:
 
-- **Perceivable**: Information must be presentable in ways users can perceive
-- **Operable**: Interface components must be operable by all users
-- **Understandable**: Information and UI operation must be understandable
-- **Robust**: Content must be robust enough for various assistive technologies
+- **Kibera Art Center**: Street art workshops transforming urban spaces
+- **Kuona Trust**: Supporting emerging contemporary artists
+- **Circle Art Gallery**: Showcasing East African contemporary art
+- **GoDown Arts Centre**: Multi-disciplinary arts programming
 
-## Color and Contrast
+## Music Festivals and Events
 
-Color contrast is one of the most important aspects of accessible design. Ensure that:
+2025 has been an incredible year for music events:
 
-- Text has a contrast ratio of at least 4.5:1 against its background
-- Large text (18pt+) has a contrast ratio of at least 3:1
-- Color is not the only way to convey information
+### Major Festivals
+- **Nyege Nyege Festival Nairobi**: East Africa's premier electronic music festival
+- **Koroga Festival**: Celebrating Kenyan music and cuisine
+- **Blankets & Wine**: Monthly outdoor music picnics
+- **Beneath the Baobabs**: Kilifi's magical coastal music experience
 
-## Testing Your Designs
+### Concert Venues
+- **Kenya National Theatre**: Historic venue with modern programming
+- **Uhuru Gardens**: Large-scale outdoor concerts
+- **Alliance Française**: Intimate performances and cultural exchange
+- **The Alchemist**: Trendy venue for emerging artists
 
-Regular testing with real users and assistive technologies is crucial. Use tools like:
+## Fashion and Design
 
-- Screen readers (NVDA, JAWS, VoiceOver)
-- Color contrast analyzers
-- Keyboard navigation testing
-- Automated accessibility scanners
+Kenya's fashion industry is gaining international recognition:
 
-> "Good design is accessible design. When we design for accessibility, we create better experiences for everyone."
+- **Nairobi Fashion Week**: Showcasing East African designers
+- **KikoRomeo**: Sustainable fashion made from African textiles
+- **Katungulu Mwendwa**: Avant-garde designs with cultural influences
+- **Adele Dejak**: Contemporary jewelry with traditional elements
 
-## Implementation Best Practices
+## Literary Renaissance
 
-Start with semantic HTML, use proper heading structures, provide alternative text for images, and ensure keyboard navigation works smoothly throughout your interface.
+Nairobi's literary scene is flourishing:
+
+- **Storymoja Festival**: Annual celebration of storytelling
+- **Poetry at Goethe**: Monthly poetry nights
+- **Book clubs**: Growing community of readers and writers
+- **Publishing houses**: Supporting local authors and stories
+
+## Digital Art and NFTs
+
+Kenyan artists are embracing digital mediums:
+
+- **Digital art collectives**: Exploring new forms of expression
+- **NFT marketplaces**: Monetizing digital creativity
+- **Virtual galleries**: Making art accessible worldwide
+- **Tech-art collaborations**: Bridging technology and creativity
+
+## Food Culture Evolution
+
+Nairobi's culinary scene is experiencing a revolution:
+
+- **Farm-to-table restaurants**: Celebrating local ingredients
+- **Street food festivals**: Elevating traditional dishes
+- **Fusion cuisine**: Blending Kenyan flavors with international techniques
+- **Food tours**: Showcasing diverse neighborhoods and cuisines
+
+> "Nairobi is not just consuming global culture anymore—we're creating it, exporting it, and showing the world what contemporary African culture looks like."
+
+## Looking Ahead
+
+The momentum continues with:
+- New cultural districts in development
+- International collaborations and exchanges
+- Investment in creative industries
+- Youth-led cultural initiatives
+
+Nairobi's cultural renaissance is more than entertainment—it's economic empowerment, social change, and cultural pride all rolled into one vibrant movement.
     `,
     author: {
-      name: "Marcus Rodriguez",
-      bio: "UX Designer and accessibility advocate with a focus on inclusive design practices. Speaker at various design conferences.",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+      name: "Fabian Louis",
+      bio: "Cultural observer and event curator. Chronicles Nairobi's evolving arts and entertainment landscape.",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
     },
-    publishedAt: "2024-01-12",
-    readingTime: 12,
-    category: "Design",
-    tags: ["Accessibility", "UX Design", "WCAG", "Inclusive Design"],
+    publishedAt: "2025-01-18",
+    readingTime: 10,
+    category: "Social Events",
+    tags: ["Nairobi", "Culture", "Music", "Art", "Events", "Fashion"],
     featured: true,
     image: "/src/assets/post-design.jpg",
-    slug: "designing-for-accessibility-complete-guide"
+    slug: "nairobi-cultural-renaissance-2025"
   },
   {
     id: "3",
-    title: "Building a Sustainable Startup: Lessons from the Trenches",
-    excerpt: "Real insights from entrepreneurs who built successful, sustainable businesses. Learn about the challenges, strategies, and mindset needed for long-term success.",
+    title: "Kenya's Economic Outlook 2025: Growth, Challenges, and Opportunities",
+    excerpt: "An in-depth analysis of Kenya's economic performance in 2025, covering GDP growth, inflation trends, key sectors driving the economy, and opportunities for investors and entrepreneurs.",
     content: `
-# Building a Sustainable Startup: Lessons from the Trenches
+# Kenya's Economic Outlook 2025: Growth, Challenges, and Opportunities
 
-Starting a business is challenging, but building one that stands the test of time requires a different approach altogether. After interviewing dozens of successful entrepreneurs and analyzing market data, several key patterns emerge for creating sustainable startups.
+As we navigate through 2025, Kenya's economy presents a complex picture of resilience, growth, and evolving challenges. Here's a comprehensive look at where we stand and where we're heading.
 
-## Focus on Problem-Solution Fit First
+## Economic Performance Overview
 
-Before rushing to build features, spend time understanding the real problem you're solving. Many startups fail because they build solutions for problems that don't exist or aren't painful enough for customers to pay for.
+Kenya's economy in 2025 has shown remarkable resilience:
 
-## Build for Unit Economics
+- **GDP Growth**: Projected at 5.8% for 2025, driven by agriculture and services
+- **Inflation Rate**: Stabilizing at 6.2%, down from 2024 peaks
+- **Currency Performance**: KES showing stability against major currencies
+- **Foreign Reserves**: Maintaining healthy levels above 4 months of imports
 
-Every business model should have clear unit economics from day one. Understand:
+## Key Growth Sectors
 
-- Customer Acquisition Cost (CAC)
-- Lifetime Value (LTV)
-- Gross margins
-- Payback periods
+### Agriculture and Food Security
+- **Digital Agriculture**: Precision farming increasing yields by 25%
+- **Value Addition**: Processing facilities reducing post-harvest losses
+- **Export Growth**: Horticultural exports reaching new markets
+- **Climate Resilience**: Drought-resistant crops gaining adoption
 
-## The Power of Iteration
+### Manufacturing Renaissance
+- **Leather Industry**: Exports to Europe and America increasing
+- **Textiles**: AGOA benefits driving growth in apparel exports
+- **Food Processing**: Local value addition reducing import dependency
+- **Pharmaceuticals**: Regional hub for medical supplies
 
-Successful startups rarely get it right the first time. They iterate quickly, learn from failures, and pivot when necessary. The key is to fail fast and cheap, not slow and expensive.
+### Services Sector Boom
+- **Financial Services**: Fintech innovations expanding financial inclusion
+- **Tourism Recovery**: International arrivals reaching pre-2020 levels
+- **ICT Services**: Business process outsourcing creating thousands of jobs
+- **Transport & Logistics**: Port of Mombasa efficiency improvements
 
-## Team and Culture
+## Infrastructure Developments
 
-Your team is your most valuable asset. Build a culture that:
+Major projects shaping Kenya's economic landscape:
 
-- Encourages open communication
-- Rewards learning from failures
-- Focuses on customer value
-- Maintains work-life balance
+### Transport Infrastructure
+- **Standard Gauge Railway**: Extensions to Uganda and Rwanda progressing
+- **Lamu Port**: New berths operational, cargo volumes increasing
+- **Road Networks**: Rural connectivity improving market access
+- **Aviation**: JKIA expansion attracting more international airlines
 
-> "Sustainability isn't just about the environment—it's about building a business that can thrive for decades, not just quarters."
+### Energy Sector
+- **Renewable Energy**: 92% of grid electricity from clean sources
+- **Rural Electrification**: 95% connectivity achieved
+- **Power Exports**: Surplus electricity exported to neighboring countries
+- **Green Hydrogen**: Pilot projects for industrial applications
 
-## Long-term Thinking
+## Investment Opportunities
 
-While growth is important, sustainable growth trumps explosive but unsustainable growth every time. Focus on building strong foundations that can support your business as it scales.
+Promising sectors for investors in 2025:
+
+### Technology and Innovation
+- **Fintech Solutions**: Expanding beyond mobile money
+- **AgriTech**: Precision farming and supply chain solutions
+- **HealthTech**: Telemedicine and diagnostic technologies
+- **EdTech**: Digital learning platforms and skills training
+
+### Sustainable Development
+- **Green Building**: Eco-friendly construction materials and methods
+- **Waste Management**: Recycling and circular economy solutions
+- **Water Technology**: Conservation and purification systems
+- **Carbon Markets**: Forest conservation and renewable energy projects
+
+## Economic Challenges
+
+Key issues requiring attention:
+
+### Debt Management
+- **Domestic Debt**: Rising interest payments affecting fiscal space
+- **External Debt**: Need for concessional financing
+- **Debt Sustainability**: Implementing fiscal consolidation measures
+- **Revenue Enhancement**: Improving tax collection efficiency
+
+### Employment and Skills
+- **Youth Unemployment**: Need for job creation in formal sector
+- **Skills Gap**: Mismatch between education and market needs
+- **Informal Sector**: Integration into formal economy
+- **Rural-Urban Migration**: Managing population shifts
+
+## Regional Integration
+
+Kenya's role in East African economic integration:
+
+- **EAC Common Market**: Increasing intra-regional trade
+- **Infrastructure Corridors**: Connecting landlocked neighbors
+- **Financial Integration**: Cross-border payment systems
+- **Skills Mobility**: Professional qualifications recognition
+
+## Looking Forward
+
+Economic priorities for the remainder of 2025:
+
+1. **Fiscal Consolidation**: Reducing budget deficit through improved revenue collection
+2. **Private Sector Growth**: Creating enabling environment for business
+3. **Export Diversification**: Reducing dependence on traditional exports
+4. **Innovation Ecosystem**: Supporting startups and technology adoption
+
+> "Kenya's economic story in 2025 is one of transformation—from an agriculture-based economy to a diversified, technology-enabled economy that serves as a regional hub."
+
+## Conclusion
+
+Despite challenges, Kenya's economic fundamentals remain strong. The combination of political stability, strategic location, young population, and growing technology adoption positions the country well for sustained growth.
+
+The key to unlocking this potential lies in continued investment in infrastructure, education, and innovation while maintaining fiscal discipline and promoting inclusive growth that benefits all Kenyans.
     `,
     author: {
-      name: "Emily Thompson", 
-      bio: "Serial entrepreneur and startup advisor. Founded three successful companies and now helps other entrepreneurs build sustainable businesses.",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+      name: "Fabian Louis",
+      bio: "Economic analyst and policy researcher. Focuses on East African economic development and regional integration.",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
     },
-    publishedAt: "2024-01-10",
-    readingTime: 10,
+    publishedAt: "2025-01-15",
+    readingTime: 12,
     category: "Business",
-    tags: ["Startups", "Entrepreneurship", "Business Strategy", "Sustainability"],
+    tags: ["Kenya Economy", "GDP Growth", "Investment", "Economic Policy", "Regional Trade"],
     featured: true,
     image: "/src/assets/post-startup.jpg",
-    slug: "building-sustainable-startup-lessons"
+    slug: "kenya-economic-outlook-2025"
   },
   {
     id: "4",
-    title: "Mastering Remote Work: Productivity Tips for Distributed Teams",
-    excerpt: "Essential strategies for staying productive while working remotely. From communication tools to workspace setup, learn how to thrive in a distributed work environment.",
+    title: "Breaking: Kenya Launches Africa's First Satellite Internet Network",
+    excerpt: "Kenya makes history as the first African country to launch a comprehensive satellite internet network, promising to bridge the digital divide and connect remote communities across the continent.",
     content: `
-# Mastering Remote Work: Productivity Tips for Distributed Teams
+# Breaking: Kenya Launches Africa's First Satellite Internet Network
 
-Remote work has transformed from a rare perk to a standard practice for many organizations. However, succeeding in a remote environment requires intentional strategies and the right tools. Here's how to master the art of remote work.
+In a historic achievement, Kenya has successfully launched Africa's first comprehensive satellite internet network, positioning the country as a leader in continental digital infrastructure. The ambitious project promises to revolutionize internet access across the region.
 
-## Creating Your Ideal Workspace
+## Project Overview
 
-Your environment significantly impacts your productivity. Consider:
+The Kenya Satellite Internet Initiative (KSII) represents a $2.8 billion investment:
 
-- **Lighting**: Natural light improves mood and energy
-- **Ergonomics**: Invest in a good chair and proper desk setup
-- **Noise**: Use noise-canceling headphones or find a quiet space
-- **Organization**: Keep your workspace clean and organized
+- **Satellite Constellation**: 144 low-earth orbit satellites
+- **Ground Stations**: 25 facilities across the country
+- **Coverage Area**: Complete Kenya coverage, expanding to East Africa
+- **Internet Speed**: Up to 100 Mbps in rural areas
 
-## Communication Best Practices
+## Revolutionary Impact
 
-Effective communication is the backbone of successful remote teams:
+This breakthrough addresses critical connectivity challenges:
 
-- **Over-communicate**: Share updates regularly with your team
-- **Use video calls**: Face-to-face interaction builds stronger relationships
-- **Establish boundaries**: Set clear expectations for availability
-- **Document everything**: Keep important decisions and processes documented
+### Rural Connectivity
+- **Remote Schools**: Internet access for 15,000 rural schools
+- **Healthcare**: Telemedicine capabilities for rural clinics
+- **Agriculture**: Real-time weather and market data for farmers
+- **Financial Inclusion**: Mobile money services in previously unconnected areas
 
-## Time Management Techniques
+### Economic Transformation
+- **Digital Jobs**: Creating opportunities for remote work
+- **E-commerce**: Enabling online businesses in rural areas
+- **Education**: Distance learning and skills development
+- **Government Services**: Digital government services nationwide
 
-Without the structure of an office, time management becomes crucial:
+## Technical Innovation
 
-1. **Time blocking**: Schedule specific times for different types of work
-2. **The Pomodoro Technique**: Work in focused 25-minute intervals
-3. **Batch similar tasks**: Group similar activities together
-4. **Set boundaries**: Create clear start and end times for your workday
+The satellite network features cutting-edge technology:
 
-## Staying Connected with Your Team
+- **Low Latency**: Sub-50ms latency for real-time applications
+- **Weather Resilience**: Advanced systems for tropical climate challenges
+- **Scalable Bandwidth**: Dynamic allocation based on demand
+- **Ground Integration**: Seamless connection with fiber infrastructure
 
-Remote work can be isolating. Combat this by:
+## Regional Expansion Plans
 
-- Participating in virtual coffee breaks
-- Joining team video calls even when not required
-- Sharing personal updates during team meetings
-- Setting up informal communication channels
+Kenya's satellite network will expand across East Africa:
 
-> "Remote work isn't about working from home—it's about working with intention, regardless of location."
+### Phase 1 (2025)
+- Complete Kenya coverage
+- Northern Tanzania and Southern Sudan pilots
 
-## Tools and Technology
+### Phase 2 (2026)
+- Full Tanzania and Uganda coverage
+- Rwanda and Burundi connectivity
 
-Invest in the right tools to support your remote work:
+### Phase 3 (2027)
+- Ethiopia and Somalia inclusion
+- Cross-border redundancy systems
 
-- **Communication**: Slack, Microsoft Teams, Discord
-- **Project Management**: Asana, Trello, Notion
-- **Video Conferencing**: Zoom, Google Meet, Loom
-- **File Sharing**: Google Drive, Dropbox, OneDrive
+## Public-Private Partnership
 
-## Maintaining Work-Life Balance
+The project showcases successful collaboration:
 
-One of the biggest challenges of remote work is maintaining boundaries between work and personal life. Create physical and temporal separation between work and home life to prevent burnout.
+- **Government Investment**: Infrastructure and regulatory framework
+- **Private Sector**: Technology and operational expertise
+- **International Partners**: Technical support and financing
+- **Academic Institutions**: Research and development support
+
+## Affordability and Access
+
+Making satellite internet accessible to all Kenyans:
+
+- **Subsidized Rural Access**: Government-supported pricing for remote areas
+- **School Programs**: Free internet for educational institutions
+- **Community Centers**: Shared access points in villages
+- **Flexible Packages**: Pay-as-you-use options for low-income users
+
+## Environmental Considerations
+
+Sustainable space technology implementation:
+
+- **Debris Prevention**: Satellites designed for controlled de-orbiting
+- **Solar Power**: Renewable energy for ground stations
+- **Minimal Ground Impact**: Compact ground station designs
+- **Wildlife Protection**: Coordination with conservation areas
+
+## Industry Response
+
+Stakeholders react to the historic launch:
+
+> "This is not just about internet connectivity—it's about democratizing access to information, education, and economic opportunities across Africa." - Cabinet Secretary for ICT
+
+### International Recognition
+- **UN Praise**: Commended as model for developing nations
+- **African Union**: Considering similar initiatives for other regions
+- **Tech Industry**: Major tech companies exploring partnerships
+- **Investment Community**: Increased interest in African space technology
+
+## Challenges and Solutions
+
+Addressing implementation challenges:
+
+### Technical Challenges
+- **Spectrum Management**: Coordinating with international regulators
+- **Weather Interference**: Adaptive systems for rainy seasons
+- **Power Supply**: Solar solutions for remote ground stations
+- **Maintenance**: Local technical capacity building
+
+### Regulatory Framework
+- **International Compliance**: Meeting ITU and space law requirements
+- **Data Protection**: Ensuring privacy and security
+- **Quality Standards**: Maintaining service level agreements
+- **Competition Policy**: Fair access for service providers
+
+## Economic Benefits
+
+Projected economic impact:
+
+- **GDP Contribution**: Estimated 2.1% increase by 2027
+- **Job Creation**: 50,000 direct and indirect jobs
+- **Investment Attraction**: $500 million in follow-on investments
+- **Export Potential**: Technology services to neighboring countries
+
+## Future Developments
+
+Next steps for Kenya's space program:
+
+- **Earth Observation**: Agricultural and environmental monitoring satellites
+- **Navigation Services**: Regional GPS enhancement
+- **Scientific Research**: Space-based research initiatives
+- **Commercial Launches**: Satellite launching services for other nations
+
+> "Today, Kenya doesn't just consume space technology—we create it, deploy it, and export it to the world."
+
+## Global Implications
+
+Kenya's success could inspire similar initiatives:
+
+- **Technology Transfer**: Sharing expertise with other African nations
+- **South-South Cooperation**: Leading satellite technology development
+- **Space Industry**: Establishing Africa as a space technology hub
+- **Digital Sovereignty**: Reducing dependence on foreign satellite services
+
+This historic achievement marks a new chapter in Kenya's technological leadership and Africa's digital transformation. The satellite internet network is more than infrastructure—it's a bridge to opportunity for millions of people across the continent.
     `,
     author: {
-      name: "David Park",
-      bio: "Remote work consultant and productivity expert. Helps teams transition to distributed work models and optimize their remote workflows.",
+      name: "Fabian Louis",
+      bio: "Technology journalist and space industry analyst. Covers Kenya's emerging space program and digital infrastructure developments.",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
     },
-    publishedAt: "2024-01-08",
-    readingTime: 7,
-    category: "Lifestyle",
-    tags: ["Remote Work", "Productivity", "Work-Life Balance", "Team Communication"],
-    featured: false,
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop",
-    slug: "mastering-remote-work-productivity-tips"
+    publishedAt: "2025-01-22",
+    readingTime: 9,
+    category: "News",
+    tags: ["Satellite Internet", "Space Technology", "Digital Infrastructure", "Breaking News", "Innovation"],
+    featured: true,
+    image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=600&fit=crop",
+    slug: "kenya-launches-africa-first-satellite-internet"
   },
   {
     id: "5",
-    title: "The Art of Code Reviews: Best Practices for Better Software",
-    excerpt: "Code reviews are more than bug hunting—they're opportunities for knowledge sharing and team building. Learn how to conduct effective reviews that improve code quality.",
+    title: "Living in Nairobi 2025: A City of Contrasts and Opportunities",
+    excerpt: "Exploring what it's like to live in Kenya's capital in 2025—from the bustling matatu culture to world-class restaurants, tech hubs to traditional markets, Nairobi offers a unique urban experience.",
     content: `
-# The Art of Code Reviews: Best Practices for Better Software
+# Living in Nairobi 2025: A City of Contrasts and Opportunities
 
-Code reviews are one of the most valuable practices in software development, yet they're often done poorly or skipped entirely. When done right, code reviews improve code quality, share knowledge, and strengthen team collaboration.
+Nairobi in 2025 is a city that defies easy categorization. It's simultaneously ancient and modern, chaotic and organized, challenging and rewarding. Here's what makes life in Kenya's capital so uniquely captivating.
 
-## Why Code Reviews Matter
+## The Urban Landscape
 
-Code reviews serve multiple purposes beyond just catching bugs:
+Nairobi's skyline tells the story of a city in transformation:
 
-- **Knowledge Sharing**: Team members learn from each other's approaches
-- **Quality Assurance**: Catch issues before they reach production
-- **Consistency**: Maintain coding standards across the team
-- **Mentorship**: Senior developers can guide junior team members
+### Modern Developments
+- **Two Rivers Mall**: East Africa's largest shopping complex
+- **Upper Hill**: The financial district rivaling any global city
+- **Konza Technopolis**: Kenya's Silicon Savannah taking shape
+- **Green City**: Sustainable urban development projects
 
-## Setting Up Effective Review Processes
+### Historic Neighborhoods
+- **Karen**: Leafy suburbs with colonial history
+- **Westlands**: Entertainment and dining hub
+- **Kilimani**: Trendy apartments and nightlife
+- **CBD**: The bustling heart of commerce
 
-Establish clear guidelines for your team:
+## Transportation Revolution
 
-- **Size Limits**: Keep pull requests small (under 400 lines when possible)
-- **Timeframe**: Aim to review code within 24 hours
-- **Checklist**: Create a standard checklist for reviewers
-- **Tools**: Use proper tools that support inline comments and discussions
+Getting around Nairobi has evolved dramatically:
 
-## What to Look For
+### Digital Solutions
+- **Uber and Bolt**: Ride-hailing services everywhere
+- **Matatu Cashless**: Digital payments on public transport
+- **Boda Boda Apps**: Motorcycle taxis with app booking
+- **Car Sharing**: Growing shared mobility options
 
-Focus on these key areas during reviews:
+### Infrastructure Improvements
+- **Bus Rapid Transit**: Dedicated lanes reducing commute times
+- **Cycling Infrastructure**: Protected bike lanes in select areas
+- **Pedestrian Walkways**: Improved sidewalks and crossings
+- **Traffic Management**: Smart lights and real-time monitoring
 
-1. **Functionality**: Does the code do what it's supposed to do?
-2. **Readability**: Is the code easy to understand?
-3. **Performance**: Are there any obvious performance issues?
-4. **Security**: Does the code introduce security vulnerabilities?
-5. **Testing**: Are there adequate tests for the new code?
+## The Food Scene
 
-## Giving Constructive Feedback
+Nairobi's culinary landscape reflects its diversity:
 
-The way you provide feedback matters:
+### Street Food Culture
+- **Nyama Choma**: Grilled meat at local joints
+- **Mandazi and Chai**: Traditional breakfast favorites
+- **Rolex**: Ugandan-inspired rolled chapati with eggs
+- **Fresh Fruit**: Roadside vendors with tropical selections
 
-- **Be specific**: Point out exact issues rather than general complaints
-- **Suggest solutions**: Don't just identify problems—offer alternatives
-- **Stay positive**: Focus on the code, not the person
-- **Ask questions**: "Why did you choose this approach?" instead of "This is wrong"
+### Restaurant Revolution
+- **Farm-to-Table**: Restaurants sourcing locally
+- **International Cuisine**: Ethiopian, Lebanese, Indian, Chinese
+- **Fusion Experiments**: Kenyan ingredients meet global techniques
+- **Craft Beer**: Local breweries creating unique flavors
 
-> "Great code reviews are conversations, not judgments. They're opportunities to learn and grow together as a team."
+### Food Markets
+- **City Market**: Fresh produce and local specialties
+- **Maasai Market**: Crafts and cultural foods
+- **Farmers Markets**: Weekend organic produce sales
+- **Night Markets**: Street food and socializing
 
-## Receiving Feedback Gracefully
+## Work and Business Culture
 
-As the code author:
+Nairobi's professional environment is evolving:
 
-- **Stay open-minded**: Consider all feedback seriously
-- **Ask for clarification**: If you don't understand a comment, ask
-- **Don't take it personally**: Remember, it's about the code, not you
-- **Learn from feedback**: Use reviews as learning opportunities
+### Tech Hub Growth
+- **iHub**: Leading innovation space
+- **Nairobi Garage**: Startup incubator and co-working
+- **@iLabAfrica**: University-based tech development
+- **Remote Work**: International companies hiring locally
 
-## Common Pitfalls to Avoid
+### Traditional Industries
+- **Banking**: Regional headquarters for multinational banks
+- **Manufacturing**: Textile and food processing
+- **Agriculture**: Coffee and tea export businesses
+- **Tourism**: Safari and business travel services
 
-- **Nitpicking style issues**: Use automated tools for formatting
-- **Reviewing too much at once**: Large PRs are hard to review effectively
-- **Ignoring the bigger picture**: Sometimes code works but doesn't fit the architecture
-- **Being too slow**: Delayed reviews block progress and frustrate developers
+### Entrepreneurship
+- **Small Business**: Informal sector providing livelihoods
+- **Social Enterprises**: Businesses solving local problems
+- **Women Entrepreneurs**: Growing female business leadership
+- **Youth Innovation**: Young people creating digital solutions
 
-## Tools and Automation
+## Entertainment and Nightlife
 
-Leverage tools to make reviews more effective:
+After work, Nairobi comes alive:
 
-- **Linters**: Catch style and simple logic issues automatically
-- **Static Analysis**: Find potential bugs and security issues
-- **CI/CD**: Ensure tests pass before human review
-- **Review Tools**: GitHub, GitLab, Bitbucket all offer good review interfaces
+### Music and Venues
+- **Live Music**: Jazz, Afrobeat, and contemporary sounds
+- **Comedy Clubs**: Thriving stand-up comedy scene
+- **Nightclubs**: From upscale lounges to underground venues
+- **Cultural Centers**: Art exhibitions and performances
 
-Code reviews are an investment in your team's future. They might slow down individual development slightly, but they significantly improve overall team velocity and code quality over time.
+### Weekend Activities
+- **National Park**: Wildlife safari within the city
+- **Karura Forest**: Hiking and cycling in nature
+- **Shopping Malls**: Entertainment complexes with cinemas
+- **Sports**: Rugby, football, and athletics events
+
+## Housing and Neighborhoods
+
+Finding a place to live in Nairobi:
+
+### Housing Options
+- **Apartments**: Modern complexes with amenities
+- **Gated Communities**: Suburban family housing
+- **Student Housing**: Near universities and colleges
+- **Affordable Housing**: Government-supported developments
+
+### Cost of Living
+- **Rent**: Varies dramatically by location (KES 25,000 - 200,000+)
+- **Transportation**: Reasonable with public transport
+- **Food**: Affordable local options, expensive imports
+- **Entertainment**: Wide range from budget to luxury options
+
+## Health and Education
+
+Quality of life factors:
+
+### Healthcare
+- **Private Hospitals**: World-class medical facilities
+- **Insurance**: Growing health insurance coverage
+- **Pharmacies**: Accessible medication and health services
+- **Wellness**: Gyms, spas, and fitness centers
+
+### Education
+- **International Schools**: High-quality education options
+- **Universities**: Growing higher education sector
+- **Technical Training**: Skills development programs
+- **Online Learning**: Digital education platforms
+
+## Challenges and Solutions
+
+Living in Nairobi isn't without its challenges:
+
+### Urban Challenges
+- **Traffic Congestion**: Rush hour delays
+- **Water Supply**: Occasional shortages in some areas
+- **Power Outages**: Infrastructure improvements ongoing
+- **Security**: Awareness and precautions necessary
+
+### Community Solutions
+- **Neighborhood Apps**: Digital community organizing
+- **Security Groups**: Resident-organized safety initiatives
+- **Environmental Groups**: Community cleanup and conservation
+- **Social Networks**: Strong community bonds and mutual support
+
+## The Social Fabric
+
+What makes Nairobi special is its people:
+
+### Cultural Diversity
+- **Multiple Languages**: English, Swahili, and ethnic languages
+- **Religious Harmony**: Churches, mosques, and temples coexisting
+- **Tribal Unity**: Over 40 ethnic groups living together
+- **International Community**: Expats and refugees adding diversity
+
+### Community Spirit
+- **Ubuntu Philosophy**: "I am because we are" mentality
+- **Collective Problem-Solving**: Communities addressing challenges together
+- **Celebration Culture**: Festivals, weddings, and shared joy
+- **Mutual Support**: Extended family and friend networks
+
+> "Nairobi doesn't just grow on you—it transforms you. This city teaches you resilience, creativity, and the art of finding opportunity in chaos."
+
+## Looking Ahead
+
+Nairobi's future in 2025 and beyond:
+
+- **Smart City Initiatives**: Technology improving urban services
+- **Sustainable Development**: Green building and renewable energy
+- **Economic Growth**: Positioning as East African business hub
+- **Cultural Renaissance**: Growing arts and creative industries
+
+Living in Nairobi in 2025 means being part of a dynamic, evolving urban story. It's a city where traditional African values meet global aspirations, where innovation springs from necessity, and where every day brings new possibilities.
+
+Whether you're starting a business, building a career, raising a family, or simply exploring life's possibilities, Nairobi offers a unique blend of challenges and opportunities that you won't find anywhere else in the world.
     `,
     author: {
-      name: "Sarah Chen",
-      bio: "Senior Full-Stack Developer with 8+ years of experience in modern web technologies. Passionate about clean code and innovative solutions.",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b5c5?w=150&h=150&fit=crop&crop=face"
+      name: "Fabian Louis",
+      bio: "Nairobi resident and urban lifestyle writer. Chronicles the daily experiences and evolving culture of Kenya's capital city.",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
     },
-    publishedAt: "2024-01-05",
-    readingTime: 9,
-    category: "Technology",
-    tags: ["Code Reviews", "Software Development", "Team Collaboration", "Best Practices"],
+    publishedAt: "2025-01-12",
+    readingTime: 11,
+    category: "Lifestyle",
+    tags: ["Nairobi", "Urban Living", "Kenya Culture", "City Life", "Lifestyle"],
     featured: false,
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop",
-    slug: "art-of-code-reviews-best-practices"
+    image: "https://images.unsplash.com/photo-1519302959554-a75be0afc82a?w=800&h=600&fit=crop",
+    slug: "living-nairobi-2025-city-contrasts-opportunities"
   }
 ];

@@ -21,10 +21,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Twitter, href: "https://x.com/_fabianlouis", label: "Twitter" },
+    { icon: Instagram, href: "https://www.instagram.com/_fabianlouis/", label: "Instagram" },
     { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Github, href: "#", label: "GitHub" },
+    { icon: Github, href: "https://github.com/09c011ab0", label: "GitHub" },
   ];
 
   return (

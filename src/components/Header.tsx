@@ -14,6 +14,7 @@ const Header = () => {
     { name: "Blog", href: "/blog" },
     { name: "Categories", href: "/categories" },
     { name: "About", href: "/about" },
+    { name: "Admin", href: "/admin" },
   ];
 
   const isActive = (href: string) => {

@@ -1,15 +1,129 @@
 import { useParams, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { ArrowLeft, Clock, Calendar, Share2, Twitter, Facebook, Linkedin, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import BlogCard from "@/components/BlogCard";
-import { blogPosts } from "@/data/blogData";
+import { supabase } from "@/integrations/supabase/client";
+
+interface BlogPost {
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: string;
+  featured_image_url: string;
+  category: string;
+  tags: string[];
+  author_name: string;
+  author_bio: string;
+  author_avatar_url: string;
+  reading_time: number;
+  featured: boolean;
+  published: boolean;
+  created_at: string;
+  updated_at: string;
+  seo_title?: string;
+  seo_description?: string;
+  published_at?: string;
+  publishedAt: string;
+  readingTime: number;
+  image: string;
+  author: {
+    name: string;
+    bio: string;
+    avatar: string;
+  };
+}
 
 const BlogPost = () => {
   const { slug } = useParams();
-  const post = blogPosts.find(p => p.slug === slug);
+  const [post, setPost] = useState<BlogPost | null>(null);
+  const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (slug) {
+      fetchPost(slug);
+    }
+  }, [slug]);
+
+  const fetchPost = async (postSlug: string) => {
+    try {
+      const { data, error } = await supabase
+        .from('blog_posts')
+        .select('*')
+        .eq('slug', postSlug)
+        .eq('published', true)
+        .single();
+
+      if (error) throw error;
+      
+      // Transform data to match existing interface
+      const transformedPost = {
+        ...data,
+        publishedAt: data.published_at || data.created_at,
+        readingTime: data.reading_time,
+        image: data.featured_image_url || '/assets/post-tech.jpg',
+        author: {
+          name: data.author_name,
+          bio: data.author_bio,
+          avatar: data.author_avatar_url || '/assets/post-tech.jpg'
+        }
+      };
+      
+      setPost(transformedPost);
+
+      // Fetch related posts
+      const { data: related, error: relatedError } = await supabase
+        .from('blog_posts')
+        .select('*')
+        .eq('published', true)
+        .neq('id', data.id)
+        .or(`category.eq.${data.category},tags.ov.{${data.tags.join(',')}}`)
+        .limit(3);
+
+      if (!relatedError && related) {
+        const transformedRelated = related.map(post => ({
+          ...post,
+          publishedAt: post.published_at || post.created_at,
+          readingTime: post.reading_time,
+          image: post.featured_image_url || '/assets/post-tech.jpg',
+          author: {
+            name: post.author_name,
+            bio: post.author_bio,
+            avatar: post.author_avatar_url || '/assets/post-tech.jpg'
+          }
+        }));
+        setRelatedPosts(transformedRelated);
+      }
+    } catch (error) {
+      console.error('Error fetching post:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long", 
+      day: "numeric",
+    });
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-foreground mb-4">Loading...</h1>
+          <p className="text-muted-foreground mb-6">Fetching article content...</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!post) {
     return (
@@ -24,18 +138,6 @@ const BlogPost = () => {
       </div>
     );
   }
-
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long", 
-      day: "numeric",
-    });
-  };
-
-  const relatedPosts = blogPosts
-    .filter(p => p.id !== post.id && (p.category === post.category || p.tags.some(tag => post.tags.includes(tag))))
-    .slice(0, 3);
 
   const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
   const shareText = `Check out this article: ${post.title}`;
@@ -60,6 +162,14 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* SEO Meta Tags - would be handled by a proper SEO component in production */}
+      {typeof document !== 'undefined' && (
+        <>
+          {post.seo_title && (document.title = post.seo_title)}
+          {post.seo_description && document.querySelector('meta[name="description"]')?.setAttribute('content', post.seo_description)}
+        </>
+      )}
+      
       {/* Back Navigation */}
       <div className="container mx-auto px-4 py-6">
         <Button asChild variant="ghost" className="mb-6">

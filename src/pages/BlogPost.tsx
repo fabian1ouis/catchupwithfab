@@ -100,7 +100,7 @@ const BlogPost = () => {
         setRelatedPosts(transformedRelated);
       }
     } catch (error) {
-      console.error('Error fetching post:', error);
+      // Silently handle errors for better user experience
     } finally {
       setLoading(false);
     }

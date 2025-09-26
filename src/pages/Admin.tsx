@@ -75,7 +75,6 @@ const Admin = () => {
       if (error) throw error;
       setPosts(data || []);
     } catch (error) {
-      console.error('Error fetching posts:', error);
       toast({
         title: "Error",
         description: "Failed to fetch blog posts",
@@ -104,7 +103,6 @@ const Admin = () => {
         description: `Post ${!published ? 'published' : 'unpublished'} successfully`,
       });
     } catch (error) {
-      console.error('Error updating post:', error);
       toast({
         title: "Error",
         description: "Failed to update post status",
@@ -128,7 +126,6 @@ const Admin = () => {
         description: `Post ${!featured ? 'featured' : 'unfeatured'} successfully`,
       });
     } catch (error) {
-      console.error('Error updating post:', error);
       toast({
         title: "Error",
         description: "Failed to update featured status",
@@ -154,7 +151,6 @@ const Admin = () => {
         description: "Post deleted successfully",
       });
     } catch (error) {
-      console.error('Error deleting post:', error);
       toast({
         title: "Error",
         description: "Failed to delete post",

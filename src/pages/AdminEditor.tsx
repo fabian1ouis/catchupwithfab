@@ -100,7 +100,6 @@ const AdminEditor = () => {
       setTagsInput((data.tags || []).join(", "));
       setKeywordsInput((data.seo_keywords || []).join(", "));
     } catch (error) {
-      console.error('Error fetching post:', error);
       toast({
         title: "Error",
         description: "Failed to fetch post",
@@ -151,7 +150,6 @@ const AdminEditor = () => {
 
       navigate('/admin');
     } catch (error) {
-      console.error('Error saving post:', error);
       toast({
         title: "Error",
         description: "Failed to save post",

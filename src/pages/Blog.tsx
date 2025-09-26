@@ -79,7 +79,7 @@ const Blog = () => {
       
       setPosts(transformedPosts);
     } catch (error) {
-      console.error('Error fetching posts:', error);
+      // Silently handle errors for better user experience
     } finally {
       setLoading(false);
     }

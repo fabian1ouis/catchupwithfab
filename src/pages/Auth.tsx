@@ -8,6 +8,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { User, Session } from '@supabase/supabase-js';
+import { authSchema } from '@/lib/validation';
 
 const Auth = () => {
   const [email, setEmail] = useState('');
@@ -51,11 +52,14 @@ const Auth = () => {
     setLoading(true);
 
     try {
+      // Validate input data
+      const validatedData = authSchema.parse({ email: email.trim(), password });
+      const { email: validEmail, password: validPassword } = validatedData;
       if (isSignUp) {
         const redirectUrl = `${window.location.origin}/`;
         const { error } = await supabase.auth.signUp({
-          email,
-          password,
+          email: validEmail,
+          password: validPassword,
           options: {
             emailRedirectTo: redirectUrl
           }
@@ -69,8 +73,8 @@ const Auth = () => {
         });
       } else {
         const { error } = await supabase.auth.signInWithPassword({
-          email,
-          password,
+          email: validEmail,
+          password: validPassword,
         });
 
         if (error) throw error;
@@ -81,10 +85,17 @@ const Auth = () => {
         });
       }
     } catch (error: any) {
+      let errorMessage = error.message;
+      
+      // Handle validation errors
+      if (error.name === 'ZodError') {
+        errorMessage = error.errors[0]?.message || 'Invalid input data';
+      }
+      
       toast({
         variant: "destructive",
         title: "Authentication error",
-        description: error.message,
+        description: errorMessage,
       });
     } finally {
       setLoading(false);

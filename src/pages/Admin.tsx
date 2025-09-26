@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { User, Session } from '@supabase/supabase-js';
 
 interface BlogPost {
   id: string;
@@ -25,11 +26,44 @@ interface BlogPost {
 const Admin = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState<User | null>(null);
+  const [session, setSession] = useState<Session | null>(null);
+  const navigate = useNavigate();
   const { toast } = useToast();
 
   useEffect(() => {
-    fetchPosts();
-  }, []);
+    // Set up auth state listener
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        setSession(session);
+        setUser(session?.user ?? null);
+        
+        // Redirect unauthenticated users to auth page
+        if (!session?.user) {
+          navigate('/auth');
+        }
+      }
+    );
+
+    // Check for existing session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setUser(session?.user ?? null);
+      
+      if (!session?.user) {
+        navigate('/auth');
+      } else {
+        fetchPosts();
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [navigate]);
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    navigate('/auth');
+  };
 
   const fetchPosts = async () => {
     try {
@@ -144,12 +178,17 @@ const Admin = () => {
           <h1 className="text-3xl font-bold">Blog Admin</h1>
           <p className="text-muted-foreground">Manage your blog posts and SEO</p>
         </div>
-        <Link to="/admin/new">
-          <Button>
-            <Plus className="w-4 h-4 mr-2" />
-            New Post
+        <div className="flex gap-2">
+          <Link to="/admin/new">
+            <Button>
+              <Plus className="w-4 h-4 mr-2" />
+              New Post
+            </Button>
+          </Link>
+          <Button variant="outline" onClick={handleSignOut}>
+            Sign Out
           </Button>
-        </Link>
+        </div>
       </div>
 
       <div className="grid gap-6">

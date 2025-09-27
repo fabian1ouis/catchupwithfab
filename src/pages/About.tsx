@@ -27,30 +27,30 @@ const About = () => {
   ];
 
   const stats = [
-    { label: "Articles Published", value: "150+" },
-    { label: "Monthly Readers", value: "10K+" },
-    { label: "Expert Contributors", value: "25+" },
-    { label: "Countries Reached", value: "50+" }
+    { label: "Articles Published", value: "50+" },
+    { label: "Monthly Readers", value: "5K+" },
+    { label: "Contributors", value: "3+" },
+    { label: "Countries Reached", value: "15+" }
   ];
 
   const team = [
     {
-      name: "Sarah Chen",
-      role: "Editor-in-Chief",
-      bio: "Former tech lead turned writer, passionate about making complex topics accessible.",
+      name: "Fabian Ogolla",
+      role: "Founder & Editor-in-Chief",
+      bio: "Passionate storyteller and tech enthusiast dedicated to sharing Kenya's innovative spirit with the world.",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"
+    },
+    {
+      name: "Grace Wanjiku", 
+      role: "Content Strategist",
+      bio: "Creative writer focused on highlighting Kenya's cultural renaissance and social innovation.",
       image: "https://images.unsplash.com/photo-1494790108755-2616b612b5c5?w=300&h=300&fit=crop&crop=face"
     },
     {
-      name: "Marcus Rodriguez", 
-      role: "Design Lead",
-      bio: "UX designer focused on creating inclusive and beautiful reading experiences.",
+      name: "David Kimani",
+      role: "Technology Editor",
+      bio: "Tech journalist covering Kenya's digital transformation and startup ecosystem.",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face"
-    },
-    {
-      name: "Emily Thompson",
-      role: "Business Editor",
-      bio: "Serial entrepreneur sharing insights on building sustainable businesses.",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face"
     }
   ];
 
@@ -60,12 +60,12 @@ const About = () => {
       <section className="bg-gradient-subtle py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-heading text-4xl md:text-5xl font-semibold text-foreground mb-6">
-            About ModernBlog
+            About Catch Up with Fab
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            We're a community of passionate writers, designers, and thinkers dedicated to sharing 
-            knowledge that matters. Our mission is to create a platform where quality content 
-            meets beautiful design, making learning both enjoyable and accessible.
+            We are a passionate team from Kenya dedicated to sharing stories that matter. 
+            Founded in 2025, our mission is to keep you informed about Kenya's dynamic growth, 
+            innovation, and cultural renaissance while connecting local stories to global conversations.
           </p>
         </div>
       </section>
@@ -81,27 +81,27 @@ const About = () => {
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    ModernBlog was born from a simple observation: the internet was full of content, 
-                    but much of it lacked depth, clarity, or beautiful presentation. We wanted to 
-                    create something different.
+                    Catch Up with Fab was born from a vision to showcase Kenya's incredible transformation 
+                    and innovation to the world. As a young nation brimming with talent and opportunity, 
+                    we believe Kenya's stories deserve a global audience.
                   </p>
                   <p>
-                    Starting in 2023, we set out to build a platform that would prioritize quality 
-                    over quantity, design over clutter, and community over algorithms. Every article 
-                    is carefully crafted, every design decision is intentional, and every reader 
-                    interaction is valued.
+                    Starting in 2025, our Kenyan team set out to create a platform that would highlight 
+                    the country's technological breakthroughs, economic growth, and vibrant cultural scene. 
+                    From Nairobi's thriving startup ecosystem to grassroots innovations across the country, 
+                    we cover the stories that define modern Kenya.
                   </p>
                   <p>
-                    Today, we're proud to serve thousands of readers worldwide, providing insights 
-                    on technology, design, business, and lifestyle that actually make a difference 
-                    in people's lives and careers.
+                    Today, we're proud to serve readers worldwide who want to understand Kenya's journey 
+                    and its role in shaping Africa's future. Every article reflects our commitment to 
+                    authentic storytelling and quality journalism.
                   </p>
                 </div>
               </div>
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop"
-                  alt="Modern workspace with laptop and coffee"
+                  src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=600&h=400&fit=crop"
+                  alt="Nairobi skyline representing Kenya's growth"
                   className="rounded-lg shadow-soft"
                 />
               </div>
@@ -118,7 +118,7 @@ const About = () => {
               Our Values
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              The principles that guide everything we do, from content creation to community building.
+              The principles that guide our mission to share Kenya's story with authenticity and purpose.
             </p>
           </div>
           
@@ -180,7 +180,8 @@ const About = () => {
               Meet Our Team
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              The passionate individuals behind ModernBlog, each bringing unique expertise and perspective.
+              The passionate Kenyan team behind Catch Up with Fab, each bringing unique perspectives 
+              on our country's evolution and global connections.
             </p>
           </div>
           
@@ -217,8 +218,8 @@ const About = () => {
                 Join Our Community
               </h2>
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Whether you're a reader looking for quality content or a writer wanting to share your expertise, 
-                we'd love to have you join our growing community.
+                Whether you're interested in Kenya's growth story or want to contribute your own insights, 
+                we'd love to have you join our growing community of readers and contributors.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button className="btn-accent">

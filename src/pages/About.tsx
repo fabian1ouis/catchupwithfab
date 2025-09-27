@@ -35,7 +35,7 @@ const About = () => {
 
   const team = [
     {
-      name: "Fabian Ogolla",
+      name: "Fabian Louis",
       role: "Founder & Editor-in-Chief",
       bio: "Passionate storyteller and tech enthusiast dedicated to sharing Kenya's innovative spirit with the world.",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"

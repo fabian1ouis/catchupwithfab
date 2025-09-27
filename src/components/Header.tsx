@@ -3,6 +3,7 @@ import { Search, Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -64,22 +65,25 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Newsletter CTA */}
-          <div className="hidden md:block">
+          {/* Actions */}
+          <div className="hidden md:flex items-center space-x-2">
+            <ThemeToggle />
             <Button variant="default" className="btn-accent">
               Subscribe
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
+          {/* Mobile Actions */}
+          <div className="flex md:hidden items-center space-x-2">
+            <ThemeToggle />
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
         </nav>
 
         {/* Mobile Menu */}

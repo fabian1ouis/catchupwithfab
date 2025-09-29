@@ -1,6 +1,7 @@
 import { Mail, Users, Target, Heart, Award, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import fabianImage from "@/assets/fabian-louis.jpg";
 
 const About = () => {
   const values = [
@@ -38,7 +39,7 @@ const About = () => {
       name: "Fabian Louis",
       role: "Founder & Editor-in-Chief",
       bio: "Passionate storyteller and tech enthusiast dedicated to sharing Kenya's innovative spirit with the world.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"
+      image: fabianImage
     },
     {
       name: "Grace Wanjiku", 

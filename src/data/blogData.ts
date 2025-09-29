@@ -1,3 +1,5 @@
+import fabianImage from "@/assets/fabian-louis-professional.jpg";
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -109,7 +111,7 @@ Kenya's digital future is bright, built on innovation that serves our people and
     author: {
       name: "Fabian Louis",
       bio: "Tech enthusiast and digital transformation advocate. Passionate about Kenya's role in Africa's technological advancement.",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+      avatar: fabianImage
     },
     publishedAt: "2025-01-20",
     readingTime: 8,
@@ -204,7 +206,7 @@ Nairobi's cultural renaissance is more than entertainment—it's economic empowe
     author: {
       name: "Fabian Louis",
       bio: "Cultural observer and event curator. Chronicles Nairobi's evolving arts and entertainment landscape.",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+      avatar: fabianImage
     },
     publishedAt: "2025-01-18",
     readingTime: 10,
@@ -329,7 +331,7 @@ The key to unlocking this potential lies in continued investment in infrastructu
     author: {
       name: "Fabian Louis",
       bio: "Economic analyst and policy researcher. Focuses on East African economic development and regional integration.",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+      avatar: fabianImage
     },
     publishedAt: "2025-01-15",
     readingTime: 12,
@@ -487,7 +489,7 @@ This historic achievement marks a new chapter in Kenya's technological leadershi
     author: {
       name: "Fabian Louis",
       bio: "Technology journalist and space industry analyst. Covers Kenya's emerging space program and digital infrastructure developments.",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+      avatar: fabianImage
     },
     publishedAt: "2025-01-22",
     readingTime: 9,
@@ -680,7 +682,7 @@ Whether you're starting a business, building a career, raising a family, or simp
     author: {
       name: "Fabian Louis",
       bio: "Nairobi resident and urban lifestyle writer. Chronicles the daily experiences and evolving culture of Kenya's capital city.",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+      avatar: fabianImage
     },
     publishedAt: "2025-01-12",
     readingTime: 11,

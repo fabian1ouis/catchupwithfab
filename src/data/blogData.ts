@@ -1,4 +1,9 @@
 import fabianImage from "@/assets/fabian-louis-professional.jpg";
+import techImage from "@/assets/post-tech.jpg";
+import designImage from "@/assets/post-design.jpg";
+import startupImage from "@/assets/post-startup.jpg";
+import satelliteImage from "@/assets/satellite-internet.jpg";
+import nairobiCityscape from "@/assets/nairobi-cityscape.jpg";
 
 export interface BlogPost {
   id: string;
@@ -118,7 +123,7 @@ Kenya's digital future is bright, built on innovation that serves our people and
     category: "Technology",
     tags: ["Fintech", "Kenya", "Digital Transformation", "Mobile Money", "Blockchain"],
     featured: true,
-    image: "/src/assets/post-tech.jpg",
+    image: techImage,
     slug: "kenya-digital-revolution-fintech-2025"
   },
   {
@@ -213,7 +218,7 @@ Nairobi's cultural renaissance is more than entertainment—it's economic empowe
     category: "Social Events",
     tags: ["Nairobi", "Culture", "Music", "Art", "Events", "Fashion"],
     featured: true,
-    image: "/src/assets/post-design.jpg",
+    image: designImage,
     slug: "nairobi-cultural-renaissance-2025"
   },
   {
@@ -338,7 +343,7 @@ The key to unlocking this potential lies in continued investment in infrastructu
     category: "Business",
     tags: ["Kenya Economy", "GDP Growth", "Investment", "Economic Policy", "Regional Trade"],
     featured: true,
-    image: "/src/assets/post-startup.jpg",
+    image: startupImage,
     slug: "kenya-economic-outlook-2025"
   },
   {
@@ -496,7 +501,7 @@ This historic achievement marks a new chapter in Kenya's technological leadershi
     category: "News",
     tags: ["Satellite Internet", "Space Technology", "Digital Infrastructure", "Breaking News", "Innovation"],
     featured: true,
-    image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=600&fit=crop",
+    image: satelliteImage,
     slug: "kenya-launches-africa-first-satellite-internet"
   },
   {
@@ -689,7 +694,7 @@ Whether you're starting a business, building a career, raising a family, or simp
     category: "Lifestyle",
     tags: ["Nairobi", "Urban Living", "Kenya Culture", "City Life", "Lifestyle"],
     featured: false,
-    image: "https://images.unsplash.com/photo-1519302959554-a75be0afc82a?w=800&h=600&fit=crop",
+    image: nairobiCityscape,
     slug: "living-nairobi-2025-city-contrasts-opportunities"
   }
 ];

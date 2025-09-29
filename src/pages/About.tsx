@@ -2,6 +2,9 @@ import { Mail, Users, Target, Heart, Award, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import fabianImage from "@/assets/fabian-louis-professional.jpg";
+import graceImage from "@/assets/grace-wanjiku.jpg";
+import davidImage from "@/assets/david-kimani.jpg";
+import nairobiSkyline from "@/assets/nairobi-skyline.jpg";
 
 const About = () => {
   const values = [
@@ -45,13 +48,13 @@ const About = () => {
       name: "Grace Wanjiku", 
       role: "Content Strategist",
       bio: "Creative writer focused on highlighting Kenya's cultural renaissance and social innovation.",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b5c5?w=300&h=300&fit=crop&crop=face"
+      image: graceImage
     },
     {
       name: "David Kimani",
       role: "Technology Editor",
       bio: "Tech journalist covering Kenya's digital transformation and startup ecosystem.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face"
+      image: davidImage
     }
   ];
 
@@ -101,7 +104,7 @@ const About = () => {
               </div>
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=600&h=400&fit=crop"
+                  src={nairobiSkyline}
                   alt="Nairobi skyline representing Kenya's growth"
                   className="rounded-lg shadow-soft"
                 />

@@ -1,7 +1,7 @@
 import { Mail, Users, Target, Heart, Award, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import fabianImage from "@/assets/fabian-louis.jpg";
+import fabianImage from "@/assets/fabian-louis-professional.jpg";
 
 const About = () => {
   const values = [

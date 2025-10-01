@@ -30,9 +30,15 @@ const Header = () => {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">CF</span>
-            </div>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-12 h-12 object-contain"
+            >
+              <source src="/logo.mp4" type="video/mp4" />
+            </video>
             <span className="font-heading text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
               Catch Up with Fab
             </span>

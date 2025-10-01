@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import { AuthProvider } from "@/hooks/useAuth";
 import LoadingScreen from "./components/LoadingScreen";
 import Layout from "./components/Layout";
 import Index from "./pages/Index";
@@ -47,21 +48,23 @@ const App = () => {
           <Sonner />
           {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
           <BrowserRouter>
-            <Layout>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="/categories" element={<Categories />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/auth" element={<Auth />} />
-                <Route path="/admin" element={<Admin />} />
-                <Route path="/admin/new" element={<AdminEditor />} />
-                <Route path="/admin/edit/:id" element={<AdminEditor />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Layout>
+            <AuthProvider>
+              <Layout>
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/:slug" element={<BlogPost />} />
+                  <Route path="/categories" element={<Categories />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/auth" element={<Auth />} />
+                  <Route path="/admin" element={<Admin />} />
+                  <Route path="/admin/new" element={<AdminEditor />} />
+                  <Route path="/admin/edit/:id" element={<AdminEditor />} />
+                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </Layout>
+            </AuthProvider>
           </BrowserRouter>
         </TooltipProvider>
       </ThemeProvider>

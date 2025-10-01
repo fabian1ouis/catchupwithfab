@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { Link, useNavigate } from "react-router-dom";
-import { User, Session } from '@supabase/supabase-js';
+import { useAuth } from "@/hooks/useAuth";
 
 interface BlogPost {
   id: string;
@@ -26,43 +26,20 @@ interface BlogPost {
 const Admin = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState<User | null>(null);
-  const [session, setSession] = useState<Session | null>(null);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { user, signOut, loading: authLoading } = useAuth();
 
   useEffect(() => {
-    // Set up auth state listener
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        setSession(session);
-        setUser(session?.user ?? null);
-        
-        // Redirect unauthenticated users to auth page
-        if (!session?.user) {
-          navigate('/auth');
-        }
-      }
-    );
-
-    // Check for existing session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      
-      if (!session?.user) {
-        navigate('/auth');
-      } else {
-        fetchPosts();
-      }
-    });
-
-    return () => subscription.unsubscribe();
-  }, [navigate]);
+    if (!authLoading && !user) {
+      navigate('/auth');
+    } else if (user) {
+      fetchPosts();
+    }
+  }, [user, authLoading, navigate]);
 
   const handleSignOut = async () => {
-    await supabase.auth.signOut();
-    navigate('/auth');
+    await signOut();
   };
 
   const fetchPosts = async () => {
@@ -159,12 +136,16 @@ const Admin = () => {
     }
   };
 
-  if (loading) {
+  if (loading || authLoading) {
     return (
       <div className="container mx-auto px-4 py-8">
         <div className="text-center">Loading...</div>
       </div>
     );
+  }
+
+  if (!user) {
+    return null;
   }
 
   return (

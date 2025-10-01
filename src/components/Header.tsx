@@ -1,14 +1,16 @@
 import { useState } from "react";
-import { Search, Menu, X } from "lucide-react";
+import { Search, Menu, X, LogOut, User } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import ThemeToggle from "@/components/ThemeToggle";
+import { useAuth } from "@/hooks/useAuth";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const location = useLocation();
+  const { user, signOut } = useAuth();
 
   const navItems = [
     { name: "Home", href: "/" },
@@ -74,9 +76,24 @@ const Header = () => {
           {/* Actions */}
           <div className="hidden md:flex items-center space-x-2">
             <ThemeToggle />
-            <Button variant="default" className="btn-accent">
-              Subscribe
-            </Button>
+            {user ? (
+              <>
+                <Link to="/admin">
+                  <Button variant="ghost" size="icon">
+                    <User className="h-5 w-5" />
+                  </Button>
+                </Link>
+                <Button variant="ghost" size="icon" onClick={signOut}>
+                  <LogOut className="h-5 w-5" />
+                </Button>
+              </>
+            ) : (
+              <Link to="/auth">
+                <Button variant="default" className="btn-accent">
+                  Sign In
+                </Button>
+              </Link>
+            )}
           </div>
 
           {/* Mobile Actions */}
@@ -124,10 +141,30 @@ const Header = () => {
                 </Link>
               ))}
 
-              {/* Mobile Newsletter CTA */}
-              <Button className="btn-accent w-full">
-                Subscribe to Newsletter
-              </Button>
+              {/* Mobile Auth Actions */}
+              {user ? (
+                <>
+                  <Link to="/admin" onClick={() => setIsMenuOpen(false)}>
+                    <Button variant="outline" className="w-full">
+                      <User className="h-4 w-4 mr-2" />
+                      Admin
+                    </Button>
+                  </Link>
+                  <Button variant="outline" className="w-full" onClick={() => {
+                    signOut();
+                    setIsMenuOpen(false);
+                  }}>
+                    <LogOut className="h-4 w-4 mr-2" />
+                    Sign Out
+                  </Button>
+                </>
+              ) : (
+                <Link to="/auth" onClick={() => setIsMenuOpen(false)}>
+                  <Button className="btn-accent w-full">
+                    Sign In
+                  </Button>
+                </Link>
+              )}
             </div>
           </div>
         )}

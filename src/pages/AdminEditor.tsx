@@ -10,6 +10,7 @@ import { Switch } from "@/components/ui/switch";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/hooks/useAuth";
 
 interface BlogPostForm {
   title: string;
@@ -35,6 +36,7 @@ const AdminEditor = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { user, loading: authLoading } = useAuth();
   const isEditing = Boolean(id);
 
   const [form, setForm] = useState<BlogPostForm>({
@@ -62,10 +64,12 @@ const AdminEditor = () => {
   const [keywordsInput, setKeywordsInput] = useState("");
 
   useEffect(() => {
-    if (isEditing && id) {
+    if (!authLoading && !user) {
+      navigate('/auth');
+    } else if (isEditing && id && user) {
       fetchPost(id);
     }
-  }, [id, isEditing]);
+  }, [id, isEditing, user, authLoading, navigate]);
 
   const fetchPost = async (postId: string) => {
     try {
@@ -163,6 +167,18 @@ const AdminEditor = () => {
   const updateForm = (field: keyof BlogPostForm, value: any) => {
     setForm(prev => ({ ...prev, [field]: value }));
   };
+
+  if (authLoading) {
+    return (
+      <div className="container mx-auto px-4 py-8 flex items-center justify-center min-h-[80vh]">
+        <p>Loading...</p>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">

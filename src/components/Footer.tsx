@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Twitter, Instagram, Linkedin, Github } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import NewsletterForm from "@/components/NewsletterForm";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,6 +9,7 @@ const Footer = () => {
     { name: "Home", href: "/" },
     { name: "Blog", href: "/blog" },
     { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
     { name: "Categories", href: "/categories" },
   ];
 
@@ -116,16 +116,7 @@ const Footer = () => {
             <p className="text-primary-foreground/80 mb-4 text-sm">
               Get the latest updates and insights delivered to your inbox.
             </p>
-            <div className="flex gap-3">
-              <Input
-                type="email"
-                placeholder="Your email"
-                className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60"
-              />
-              <Button className="bg-accent text-accent-foreground hover:bg-accent/90">
-                Subscribe
-              </Button>
-            </div>
+            <NewsletterForm />
           </div>
         </div>
 

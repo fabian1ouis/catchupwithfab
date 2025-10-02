@@ -13,6 +13,7 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Categories from "./pages/Categories";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
 import AdminEditor from "./pages/AdminEditor";
 import Auth from "./pages/Auth";
@@ -56,6 +57,7 @@ const App = () => {
                   <Route path="/blog/:slug" element={<BlogPost />} />
                   <Route path="/categories" element={<Categories />} />
                   <Route path="/about" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
                   <Route path="/auth" element={<Auth />} />
                   <Route path="/admin" element={<Admin />} />
                   <Route path="/admin/new" element={<AdminEditor />} />

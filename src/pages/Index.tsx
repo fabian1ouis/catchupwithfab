@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Hero from "@/components/Hero";
 import BlogCard from "@/components/BlogCard";
+import NewsletterForm from "@/components/NewsletterForm";
 import { blogPosts, categories } from "@/data/blogData";
 
 const Index = () => {
@@ -148,15 +149,8 @@ const Index = () => {
               Connect with 25,000+ forward-thinking professionals who receive exclusive insights, 
               early access to content, and invitations to virtual events.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto animate-fade-in">
-              <input
-                type="email"
-                placeholder="Enter your professional email"
-                className="flex-1 px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-300"
-              />
-              <Button className="btn-accent px-8 py-3 hover-glow">
-                Join Network
-              </Button>
+            <div className="max-w-md mx-auto">
+              <NewsletterForm />
             </div>
             <p className="text-sm text-muted-foreground mt-4">
               We respect your privacy. Unsubscribe at any time.

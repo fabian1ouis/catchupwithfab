@@ -37,7 +37,7 @@ const Header = () => {
               loop
               muted
               playsInline
-              className="w-12 h-12 object-contain"
+              className="w-12 h-12 object-contain rounded-lg"
             >
               <source src="/logo.mp4" type="video/mp4" />
             </video>

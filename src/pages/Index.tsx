@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, TrendingUp, Users, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 import Hero from "@/components/Hero";
 import BlogCard from "@/components/BlogCard";
 import NewsletterForm from "@/components/NewsletterForm";
@@ -63,17 +64,23 @@ const Index = () => {
       {/* Categories Section */}
       <section className="py-16 bg-subtle">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
             <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-4">
               Explore by Category
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Discover content tailored to your interests across our carefully curated categories.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {categories.map((category) => {
+            {categories.map((category, index) => {
               const categoryPosts = blogPosts.filter(post => post.category === category.name);
               const icons = {
                 Technology: BookOpen,
@@ -84,27 +91,38 @@ const Index = () => {
               const Icon = icons[category.name as keyof typeof icons] || BookOpen;
 
               return (
-                <Link
+                <motion.div
                   key={category.id}
-                  to={`/categories/${category.slug}`}
-                  className="group animate-fade-in"
-                  style={{animationDelay: `${parseInt(category.id) * 0.1}s`}}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  whileHover={{ y: -5, scale: 1.02 }}
                 >
-                  <div className="card-elevated p-6 text-center hover-lift hover-glow transition-all duration-300">
-                    <div className="w-12 h-12 bg-accent rounded-lg mx-auto mb-4 flex items-center justify-center group-hover:scale-110 group-hover:animate-pulse-glow transition-all duration-300">
-                      <Icon className="h-6 w-6 text-accent-foreground" />
+                  <Link
+                    to={`/categories/${category.slug}`}
+                    className="group"
+                  >
+                    <div className="card-elevated p-6 text-center transition-all duration-300 h-full">
+                      <motion.div 
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 0.6 }}
+                        className="w-12 h-12 bg-accent rounded-lg mx-auto mb-4 flex items-center justify-center"
+                      >
+                        <Icon className="h-6 w-6 text-accent-foreground" />
+                      </motion.div>
+                      <h3 className="font-heading text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors duration-200">
+                        {category.name}
+                      </h3>
+                      <p className="text-muted-foreground text-sm mb-3">
+                        {category.description}
+                      </p>
+                      <div className="text-xs text-muted-foreground">
+                        {categoryPosts.length} articles
+                      </div>
                     </div>
-                    <h3 className="font-heading text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors duration-200">
-                      {category.name}
-                    </h3>
-                    <p className="text-muted-foreground text-sm mb-3">
-                      {category.description}
-                    </p>
-                    <div className="text-xs text-muted-foreground">
-                      {categoryPosts.length} articles
-                    </div>
-                  </div>
-                </Link>
+                  </Link>
+                </motion.div>
               );
             })}
           </div>

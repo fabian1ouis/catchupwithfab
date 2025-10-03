@@ -27,7 +27,7 @@ const LoadingScreen = ({ onLoadingComplete }: LoadingScreenProps) => {
         muted
         playsInline
         onEnded={() => setIsVideoEnded(true)}
-        className="w-64 h-64 object-contain"
+        className="w-64 h-64 object-contain rounded-lg"
       >
         <source src="/logo.mp4" type="video/mp4" />
       </video>

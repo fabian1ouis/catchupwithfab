@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import SEO from "@/components/SEO";
+import Breadcrumb from "@/components/Breadcrumb";
+import { BlogPostStructuredData, BreadcrumbStructuredData } from "@/components/StructuredData";
 import BlogCard from "@/components/BlogCard";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -162,16 +165,47 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* SEO Meta Tags - would be handled by a proper SEO component in production */}
-      {typeof document !== 'undefined' && (
-        <>
-          {post.seo_title && (document.title = post.seo_title)}
-          {post.seo_description && document.querySelector('meta[name="description"]')?.setAttribute('content', post.seo_description)}
-        </>
-      )}
+      <SEO
+        title={post.seo_title || post.title}
+        description={post.seo_description || post.excerpt}
+        keywords={post.tags}
+        image={post.image}
+        type="article"
+        article={{
+          publishedTime: post.publishedAt,
+          author: post.author.name,
+          tags: post.tags
+        }}
+      />
+      <BlogPostStructuredData
+        title={post.title}
+        description={post.excerpt}
+        image={post.image}
+        datePublished={post.publishedAt}
+        dateModified={post.updated_at || post.publishedAt}
+        author={{
+          name: post.author.name,
+          url: `${window.location.origin}/about`
+        }}
+        url={window.location.href}
+      />
+      <BreadcrumbStructuredData
+        items={[
+          { name: "Blog", url: `${window.location.origin}/blog` },
+          { name: post.category, url: `${window.location.origin}/blog` },
+          { name: post.title, url: window.location.href }
+        ]}
+      />
       
       {/* Back Navigation */}
       <div className="container mx-auto px-4 py-6">
+        <Breadcrumb
+          items={[
+            { name: "Blog", url: "/blog" },
+            { name: post.category, url: "/blog" },
+            { name: post.title, url: `/blog/${post.slug}` }
+          ]}
+        />
         <Button asChild variant="ghost" className="mb-6">
           <Link to="/blog">
             <ArrowLeft className="h-4 w-4 mr-2" />

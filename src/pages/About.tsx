@@ -1,6 +1,7 @@
 import { Mail, Users, Target, Heart, Award, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import SEO from "@/components/SEO";
 import fabianImage from "@/assets/fabian-louis-professional.jpg";
 import graceImage from "@/assets/grace-wanjiku.jpg";
 import davidImage from "@/assets/david-kimani.jpg";
@@ -60,6 +61,11 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="About Fab - Tech Innovator & Content Creator"
+        description="Learn about Fab, a passionate tech innovator and content creator sharing insights on technology, business, and innovation in Kenya and beyond."
+        keywords={['Fab blog author', 'tech innovator Kenya', 'content creator', 'technology writer']}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-subtle py-20">
         <div className="container mx-auto px-4 text-center">

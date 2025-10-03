@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import SEO from "@/components/SEO";
 import BlogCard from "@/components/BlogCard";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -136,6 +137,11 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Blog - Latest Articles on Tech, Business & Innovation"
+        description="Discover in-depth articles, expert analysis, and trending stories about technology, startups, and business innovation in Kenya and beyond."
+        keywords={['tech articles', 'business blog', 'startup insights', 'Kenya innovation', 'technology news']}
+      />
       {/* Header */}
       <section className="bg-subtle py-16">
         <div className="container mx-auto px-4 text-center">

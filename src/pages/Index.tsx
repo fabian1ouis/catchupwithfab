@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import Hero from "@/components/Hero";
 import BlogCard from "@/components/BlogCard";
 import NewsletterForm from "@/components/NewsletterForm";
+import SEO from "@/components/SEO";
 import { blogPosts, categories } from "@/data/blogData";
 
 const Index = () => {
@@ -13,6 +14,12 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Fab Blog - Kenya's Premier Tech & Business Insights"
+        description="Explore cutting-edge technology trends, business innovation, and startup insights from Kenya's leading voices. Join 25,000+ professionals staying ahead of the curve."
+        keywords={['Kenya tech blog', 'business insights Kenya', 'startup news', 'technology trends', 'innovation Africa']}
+        type="website"
+      />
       {/* Hero Section */}
       <Hero />
 

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import SEO from "@/components/SEO";
 import { z } from "zod";
 import { Mail, Phone, MapPin } from "lucide-react";
 
@@ -65,6 +66,11 @@ const Contact = () => {
 
   return (
     <div className="container mx-auto px-4 py-16">
+      <SEO
+        title="Contact Us - Get in Touch"
+        description="Have a question or want to collaborate? Contact Fab Blog team. We respond to all inquiries within 24 hours."
+        keywords={['contact Fab blog', 'get in touch', 'business inquiries', 'collaboration']}
+      />
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Get in Touch</h1>

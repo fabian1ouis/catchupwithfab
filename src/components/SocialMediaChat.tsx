@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Facebook, Twitter, Linkedin, Mail } from "lucide-react";
+import { MessageCircle, X, Twitter, Instagram, Linkedin, Github } from "lucide-react";
 import { Button } from "./ui/button";
 
 const SocialMediaChat = () => {
@@ -8,28 +8,28 @@ const SocialMediaChat = () => {
 
   const socialLinks = [
     {
-      name: "Facebook",
-      icon: Facebook,
-      url: "https://facebook.com",
-      color: "hover:text-[#1877F2]",
-    },
-    {
       name: "Twitter",
       icon: Twitter,
-      url: "https://twitter.com",
+      url: "https://x.com/_fabianlouis",
       color: "hover:text-[#1DA1F2]",
+    },
+    {
+      name: "Instagram",
+      icon: Instagram,
+      url: "https://www.instagram.com/_fabianlouis/",
+      color: "hover:text-[#E4405F]",
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "https://linkedin.com",
+      url: "https://www.linkedin.com/in/fabian-louis-35b809198/",
       color: "hover:text-[#0A66C2]",
     },
     {
-      name: "Email",
-      icon: Mail,
-      url: "mailto:contact@example.com",
-      color: "hover:text-primary",
+      name: "GitHub",
+      icon: Github,
+      url: "https://github.com/09c011ab0",
+      color: "hover:text-foreground",
     },
   ];
 

@@ -189,11 +189,11 @@
   
   /* Card Variants */
   .card-elevated {
-    @apply bg-card border border-card-border shadow-soft hover:shadow-elevated transition-all duration-300;
+    @apply bg-card border border-card-border shadow-soft hover:shadow-elevated transition-all duration-300 rounded-lg;
   }
   
   .card-featured {
-    @apply bg-gradient-to-br from-card to-subtle border border-card-border shadow-elevated;
+    @apply bg-gradient-to-br from-card to-subtle border border-card-border shadow-elevated rounded-lg;
   }
   
   /* Navigation */

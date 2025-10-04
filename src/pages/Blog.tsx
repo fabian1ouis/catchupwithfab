@@ -7,6 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import SEO from "@/components/SEO";
 import BlogCard from "@/components/BlogCard";
 import { supabase } from "@/integrations/supabase/client";
+import { motion } from "framer-motion";
 
 interface BlogPost {
   id: string;
@@ -145,18 +146,33 @@ const Blog = () => {
       {/* Header */}
       <section className="bg-subtle py-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-heading text-4xl md:text-5xl font-semibold text-foreground mb-4">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="font-heading text-4xl md:text-5xl font-semibold text-foreground mb-4"
+          >
             All Articles
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-xl text-muted-foreground max-w-2xl mx-auto"
+          >
             Explore our collection of articles covering technology, design, business, and lifestyle topics.
-          </p>
+          </motion.p>
         </div>
       </section>
 
       <div className="container mx-auto px-4 py-12">
         {/* Search and Filters */}
-        <div className="bg-card card-elevated rounded-lg p-6 mb-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="bg-card card-elevated rounded-lg p-6 mb-8"
+        >
           {/* Search Bar */}
           <div className="relative mb-6">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
@@ -245,7 +261,7 @@ const Blog = () => {
               </div>
             </>
           )}
-        </div>
+        </motion.div>
 
         {/* Results */}
         {filteredPosts.length === 0 ? (
@@ -265,8 +281,16 @@ const Blog = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post) => (
-              <BlogCard key={post.id} post={post} />
+            {filteredPosts.map((post, index) => (
+              <motion.div
+                key={post.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <BlogCard post={post} />
+              </motion.div>
             ))}
           </div>
         )}

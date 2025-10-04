@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Twitter, Instagram, Linkedin, Github } from "lucide-react";
 import NewsletterForm from "@/components/NewsletterForm";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -29,7 +30,13 @@ const Footer = () => {
 
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="container mx-auto px-4 py-16">
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="container mx-auto px-4 py-16"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand & Contact Info */}
           <div className="lg:col-span-2">
@@ -147,7 +154,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 };

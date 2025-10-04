@@ -132,24 +132,33 @@ const Index = () => {
       {/* Latest Posts Section */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
             <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-4">
               Latest Articles
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Stay up to date with our newest content covering the latest trends and insights.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {latestPosts.map((post, index) => (
-              <div 
-                key={post.id} 
-                className="animate-fade-in hover-lift"
-                style={{animationDelay: `${index * 0.1}s`}}
+              <motion.div 
+                key={post.id}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="hover-lift"
               >
                 <BlogCard post={post} />
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -166,7 +175,13 @@ const Index = () => {
       {/* Newsletter CTA Section */}
       <section className="py-16 bg-gradient-subtle">
         <div className="container mx-auto px-4">
-          <div className="card-featured max-w-4xl mx-auto p-12 text-center">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="card-featured max-w-4xl mx-auto p-12 text-center"
+          >
             <h2 className="font-heading text-3xl md:text-4xl font-semibold text-foreground mb-4">
               Join the Innovation Network
             </h2>
@@ -180,7 +195,7 @@ const Index = () => {
             <p className="text-sm text-muted-foreground mt-4">
               We respect your privacy. Unsubscribe at any time.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>

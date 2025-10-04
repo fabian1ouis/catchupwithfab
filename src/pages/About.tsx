@@ -6,6 +6,7 @@ import fabianImage from "@/assets/fabian-louis-professional.jpg";
 import graceImage from "@/assets/grace-wanjiku.jpg";
 import davidImage from "@/assets/david-kimani.jpg";
 import nairobiSkyline from "@/assets/nairobi-skyline.jpg";
+import { motion } from "framer-motion";
 
 const About = () => {
   const values = [
@@ -69,14 +70,24 @@ const About = () => {
       {/* Hero Section */}
       <section className="bg-gradient-subtle py-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-heading text-4xl md:text-5xl font-semibold text-foreground mb-6">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="font-heading text-4xl md:text-5xl font-semibold text-foreground mb-6"
+          >
             About Catch Up with Fab
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+          >
             We are a passionate team from Kenya dedicated to sharing stories that matter. 
             Founded in 2025, our mission is to keep you informed about Kenya's dynamic growth, 
             innovation, and cultural renaissance while connecting local stories to global conversations.
-          </p>
+          </motion.p>
         </div>
       </section>
 
@@ -85,7 +96,12 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-              <div>
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
                 <h2 className="font-heading text-3xl font-semibold text-foreground mb-6">
                   Our Story
                 </h2>
@@ -107,14 +123,20 @@ const About = () => {
                     authentic storytelling and quality journalism.
                   </p>
                 </div>
-              </div>
-              <div className="relative">
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="relative"
+              >
                 <img
                   src={nairobiSkyline}
                   alt="Nairobi skyline representing Kenya's growth"
                   className="rounded-lg shadow-soft"
                 />
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -136,7 +158,14 @@ const About = () => {
             {values.map((value, index) => {
               const Icon = value.icon;
               return (
-                <Card key={index} className="card-elevated text-center">
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Card className="card-elevated text-center">
                   <CardContent className="p-6">
                     <div className="w-12 h-12 bg-accent rounded-lg mx-auto mb-4 flex items-center justify-center">
                       <Icon className="h-6 w-6 text-accent-foreground" />
@@ -149,6 +178,7 @@ const About = () => {
                     </p>
                   </CardContent>
                 </Card>
+                </motion.div>
               );
             })}
           </div>
@@ -169,14 +199,21 @@ const About = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="text-center"
+              >
                 <div className="text-4xl md:text-5xl font-bold text-accent mb-2">
                   {stat.value}
                 </div>
                 <div className="text-muted-foreground font-medium">
                   {stat.label}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -197,7 +234,14 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {team.map((member, index) => (
-              <Card key={index} className="card-elevated text-center">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+              >
+                <Card className="card-elevated text-center">
                 <CardContent className="p-6">
                   <img
                     src={member.image}
@@ -213,6 +257,7 @@ const About = () => {
                   </p>
                 </CardContent>
               </Card>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -221,7 +266,13 @@ const About = () => {
       {/* CTA Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <Card className="card-featured max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <Card className="card-featured max-w-4xl mx-auto">
             <CardContent className="p-12 text-center">
               <BookOpen className="h-12 w-12 text-accent mx-auto mb-6" />
               <h2 className="font-heading text-3xl font-semibold text-foreground mb-4">
@@ -242,6 +293,7 @@ const About = () => {
               </div>
             </CardContent>
           </Card>
+          </motion.div>
         </div>
       </section>
     </div>

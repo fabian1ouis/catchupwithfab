@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Instagram, Linkedin, Github } from "lucide-react";
+import { MessageCircle, X as CloseIcon, Instagram, Linkedin, Github } from "lucide-react";
 import { Button } from "./ui/button";
+import XIcon from "./icons/XIcon";
 
 const SocialMediaChat = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +10,7 @@ const SocialMediaChat = () => {
   const socialLinks = [
     {
       name: "X",
-      icon: X,
+      icon: XIcon,
       url: "https://x.com/_fabianlouis",
       color: "hover:text-foreground",
     },
@@ -83,7 +84,7 @@ const SocialMediaChat = () => {
                 exit={{ rotate: 90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <X className="h-6 w-6" />
+                <CloseIcon className="h-6 w-6" />
               </motion.div>
             ) : (
               <motion.div

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Twitter, Instagram, Linkedin, Github } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Linkedin, Github } from "lucide-react";
 import NewsletterForm from "@/components/NewsletterForm";
 import { motion } from "framer-motion";
+import XIcon from "./icons/XIcon";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -22,7 +23,7 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Twitter, href: "https://x.com/_fabianlouis", label: "Twitter" },
+    { icon: XIcon, href: "https://x.com/_fabianlouis", label: "X" },
     { icon: Instagram, href: "https://www.instagram.com/_fabianlouis/", label: "Instagram" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/fabian-louis-35b809198/", label: "LinkedIn" },
     { icon: Github, href: "https://github.com/09c011ab0", label: "GitHub" },

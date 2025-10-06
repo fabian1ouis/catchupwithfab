@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Twitter, Instagram, Linkedin, Github } from "lucide-react";
+import { MessageCircle, X, Instagram, Linkedin, Github } from "lucide-react";
 import { Button } from "./ui/button";
 
 const SocialMediaChat = () => {
@@ -8,10 +8,10 @@ const SocialMediaChat = () => {
 
   const socialLinks = [
     {
-      name: "Twitter",
-      icon: Twitter,
+      name: "X",
+      icon: X,
       url: "https://x.com/_fabianlouis",
-      color: "hover:text-[#1DA1F2]",
+      color: "hover:text-foreground",
     },
     {
       name: "Instagram",

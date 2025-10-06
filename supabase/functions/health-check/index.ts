@@ -11,9 +11,48 @@ serve(async (req) => {
     return new Response(null, { headers: corsHeaders });
   }
 
+  // Only allow GET requests for health check
+  if (req.method !== 'GET') {
+    return new Response(
+      JSON.stringify({ 
+        status: "error",
+        message: `Method ${req.method} not allowed. Only GET requests are supported.`
+      }),
+      { 
+        headers: { 
+          ...corsHeaders, 
+          'Content-Type': 'application/json' 
+        },
+        status: 405
+      }
+    );
+  }
+
+  // Handle malformed POST/PUT data gracefully
+  if (req.body) {
+    try {
+      await req.text(); // Attempt to read body to ensure no malformed data causes issues
+    } catch (error) {
+      return new Response(
+        JSON.stringify({ 
+          status: "error",
+          message: "Malformed request body"
+        }),
+        { 
+          headers: { 
+            ...corsHeaders, 
+            'Content-Type': 'application/json' 
+          },
+          status: 400
+        }
+      );
+    }
+  }
+
   try {
     const response = {
       status: "healthy",
+      message: "Service is operational and all systems are functioning normally",
       timestamp: new Date().toISOString(),
       service: "Fabian Louis Blog API",
       version: "1.0.0",

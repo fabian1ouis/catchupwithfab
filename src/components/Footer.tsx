@@ -23,10 +23,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: XIcon, href: "https://x.com/_fabianlouis", label: "X" },
-    { icon: Instagram, href: "https://www.instagram.com/_fabianlouis/", label: "Instagram" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/fabian-louis-35b809198/", label: "LinkedIn" },
-    { icon: Github, href: "https://github.com/09c011ab0", label: "GitHub" },
+    { icon: XIcon, href: "https://x.com/_fabianlouis", label: "X", hoverClass: "hover:bg-[#000000]" },
+    { icon: Instagram, href: "https://www.instagram.com/_fabianlouis/", label: "Instagram", hoverClass: "hover:bg-[#E4405F]" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/fabian-louis-35b809198/", label: "LinkedIn", hoverClass: "hover:bg-[#0A66C2]" },
+    { icon: Github, href: "https://github.com/09c011ab0", label: "GitHub", hoverClass: "hover:bg-[#181717]" },
   ];
 
   return (
@@ -137,7 +137,7 @@ const Footer = () => {
                 <a
                   key={social.label}
                   href={social.href}
-                  className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors duration-200"
+                  className={`w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:text-white transition-colors duration-200 ${social.hoverClass}`}
                   aria-label={social.label}
                 >
                   <Icon className="h-5 w-5" />

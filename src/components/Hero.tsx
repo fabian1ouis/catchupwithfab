@@ -1,10 +1,28 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen, Users, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import heroImage from "@/assets/hero-image.jpg";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const { scrollYProgress } = useScroll();
+  const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  
+  const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number; size: number; duration: number }>>([]);
+
+  useEffect(() => {
+    const newParticles = Array.from({ length: 20 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 4 + 2,
+      duration: Math.random() * 10 + 15,
+    }));
+    setParticles(newParticles);
+  }, []);
+
   const stats = [
     { icon: BookOpen, label: "Articles Published", value: "150+" },
     { icon: Users, label: "Active Readers", value: "10K+" },
@@ -45,10 +63,22 @@ const Hero = () => {
     }),
   };
 
+  const letterVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  };
+
+  const title = "Welcome to";
+  const subtitle = "Catch Up with Fab";
+
   return (
     <section className="relative overflow-hidden bg-gradient-subtle py-20 lg:py-32">
       {/* Background Image with Overlay */}
       <motion.div 
+        style={{ y, opacity }}
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.5 }}
@@ -62,6 +92,30 @@ const Hero = () => {
         <div className="absolute inset-0 bg-primary/90" />
       </motion.div>
 
+      {/* Floating Particles */}
+      {particles.map((particle) => (
+        <motion.div
+          key={particle.id}
+          className="absolute rounded-full bg-accent/20"
+          style={{
+            left: `${particle.x}%`,
+            top: `${particle.y}%`,
+            width: particle.size,
+            height: particle.size,
+          }}
+          animate={{
+            y: [0, -30, 0],
+            x: [0, Math.random() * 20 - 10, 0],
+            opacity: [0.2, 0.5, 0.2],
+          }}
+          transition={{
+            duration: particle.duration,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+
       {/* Content */}
       <div className="relative container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -73,15 +127,50 @@ const Hero = () => {
             className="text-white"
           >
             <motion.h1 
-              variants={itemVariants}
-              className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight"
+              className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight overflow-hidden"
             >
-              Welcome to
-              <span className="block bg-gradient-to-r from-accent to-yellow-300 bg-clip-text text-transparent">Catch Up with Fab</span>
+              <motion.span className="block">
+                {title.split("").map((char, i) => (
+                  <motion.span
+                    key={i}
+                    variants={letterVariants}
+                    initial="hidden"
+                    animate="visible"
+                    transition={{
+                      delay: i * 0.03,
+                      duration: 0.5,
+                    }}
+                    className="inline-block"
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+              </motion.span>
+              <motion.span 
+                className="block bg-gradient-to-r from-accent to-yellow-300 bg-clip-text text-transparent"
+              >
+                {subtitle.split("").map((char, i) => (
+                  <motion.span
+                    key={i}
+                    variants={letterVariants}
+                    initial="hidden"
+                    animate="visible"
+                    transition={{
+                      delay: (title.length + i) * 0.03,
+                      duration: 0.5,
+                    }}
+                    className="inline-block"
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+              </motion.span>
             </motion.h1>
             
             <motion.p 
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.8 }}
               className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed"
             >
               Your personal gateway to insights, stories, and conversations that matter. 
@@ -89,26 +178,40 @@ const Hero = () => {
             </motion.p>
             
             <motion.div 
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.5, duration: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 mb-12"
             >
-              <Button asChild className="btn-accent text-lg px-8 py-4">
-                <Link to="/blog">
-                  Start Reading
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button asChild className="btn-accent text-lg px-8 py-4">
+                  <Link to="/blog">
+                    Start Reading
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+              </motion.div>
               
-              <Button asChild variant="outline" className="text-lg px-8 py-4 border-white/30 text-white hover:bg-white hover:text-primary">
-                <Link to="/about">
-                  Learn More
-                </Link>
-              </Button>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button asChild variant="outline" className="text-lg px-8 py-4 border-white/30 text-white hover:bg-white hover:text-primary">
+                  <Link to="/about">
+                    Learn More
+                  </Link>
+                </Button>
+              </motion.div>
             </motion.div>
 
             {/* Stats */}
             <motion.div 
-              variants={itemVariants}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.8, duration: 0.8 }}
               className="grid grid-cols-3 gap-6"
             >
               {stats.map((stat, index) => {

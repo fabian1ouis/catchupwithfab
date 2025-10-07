@@ -134,14 +134,20 @@ const Footer = () => {
             {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
-                <a
+                <motion.a
                   key={social.label}
                   href={social.href}
                   className={`w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:text-white transition-colors duration-200 ${social.hoverClass}`}
                   aria-label={social.label}
+                  whileHover={{ 
+                    scale: 1.15,
+                    rotate: [0, -10, 10, -10, 0],
+                    transition: { duration: 0.3 }
+                  }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <Icon className="h-5 w-5" />
-                </a>
+                </motion.a>
               );
             })}
           </div>
